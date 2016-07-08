@@ -1,0 +1,79 @@
+$font-stack: Helvetica, sans-serif;
+$primary-color: #000;
+
+@import 'backbone.marionette.modal';
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+  background-color: white;
+  font-size: large;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin box-shadow($first, $second, $color) {
+  -webkit-box-shadow: $first $first $second 0px $color;
+  -moz-box-shadow: $first $first $second 0px $color;
+  box-shadow: $first $first $second 0px $color;
+}
+
+a:link {
+  color: #2a5db0;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #2a5db0;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ccc;
+  text-decoration: none;
+}
+
+a:active {
+  color: #ccc;
+  text-decoration: none;
+}
+
+.withings {
+  padding-bottom: 10px;
+}
+
+.plain-link {
+  text-decoration: none;
+}
+
+.transparent {
+  opacity: 0;
+}
+
+.paddedthing {
+  padding: 6px 12px;
+  position: relative;
+}
+
+.badge {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  background: grey;
+  text-align: center;
+  line-height: 16px;
+  font-size: 11px;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  color: white;
+}
+
+.center {
+  text-align: center !important;
+}

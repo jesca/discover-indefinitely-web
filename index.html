@@ -1,0 +1,76 @@
+<html>
+<head>
+  <title>Discover Indefinitely</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <style>
+    .loading {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+    }
+
+    .loading-bar {
+      display: inline-block;
+      width: 4px;
+      height: 18px;
+      border-radius: 4px;
+      animation: loading 1s ease-in-out infinite;
+    }
+
+    .loading-bar:nth-child(1) {
+      background-color: grey;
+      animation-delay: 0;
+    }
+
+    .loading-bar:nth-child(2) {
+      background-color: grey;
+      animation-delay: 0.09s;
+    }
+
+    .loading-bar:nth-child(3) {
+      background-color: grey;
+      animation-delay: .18s;
+    }
+
+    .loading-bar:nth-child(4) {
+      background-color: grey;
+      animation-delay: .27s;
+    }
+
+    @keyframes loading {
+      0% {
+        transform: scale(1);
+      }
+      20% {
+        transform: scale(1, 2.2);
+      }
+      40% {
+        transform: scale(1);
+      }
+    }
+
+    .hidden {
+      display: none !important;
+      visibility: hidden;
+    }
+  </style>
+</head>
+<body>
+<div class="loading">
+  <div class="loading-bar"></div>
+  <div class="loading-bar"></div>
+  <div class="loading-bar"></div>
+  <div class="loading-bar"></div>
+</div>
+<div class="app-modal"></div>
+<h1 class="hidden">Discover Indefinitely</h1>
+
+<div class="content hidden">
+  <div class="profile hidden"></div>
+  <div class="login hidden"></div>
+</div>
+<script type="text/javascript" src="bundle.js" charset="utf-8"></script>
+</body>
+</html>
