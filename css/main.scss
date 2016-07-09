@@ -83,6 +83,49 @@ a:active {
   color: #ccc;
  }
 
+.playlist-thumb {
+    width: 48px;
+    height: 48px;
+    vertical-align: middle;
+    //padding-bottom: 12px;
+    padding-right: 5px;
+}
+
+.playlist {
+    cursor: pointer;
+    .playlist-name {
+      font-size: 28px;
+    }
+}
+
+.selected {
+  //padding: 10px;
+  //border: 9px solid #000000;
+  background-color: #b4ecb4;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  //display: inline-block;
+}
+
+.save {
+  font-size: 16px;
+  color: #2a5db0;
+  cursor: pointer;
+}
+
+.cancel {
+  font-size: 16px;
+  color: red;
+  cursor: pointer;
+}
+
 .center {
   text-align: center !important;
 }

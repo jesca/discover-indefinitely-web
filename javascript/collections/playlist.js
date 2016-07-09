@@ -3,10 +3,7 @@ App.Collections.Playlist = Backbone.Collection.extend({
   //paramRoot: "",
   url : "https://discoverindefinitely.com/api/v1/playlists",
   initialize : function () {
-    this.listenTo(this, "load sync add remove", _.throttle(function () { App.trigger("playlists:update"); }, 250, { leading: false }));
-  },
-  parse : function (response) {
-    return response;
+    this.listenTo(this, "sync", _.throttle(function () { App.trigger("playlists:updated"); }, 250, { leading: false }));
   }
 });
 module.exports = App;

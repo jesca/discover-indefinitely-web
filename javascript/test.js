@@ -38,13 +38,13 @@ App.profile.fetch({
       if (leftToLoad == 0) {
         loaded();
       }
-      App.playlists.fetch();
       profileView.render();
       settingsView.render();
-      if (model.get("source_playlist_owner_id") && model.get("source_playlist_id")) {
-        $(".profile").removeClass("hidden");
+      App.playlists.fetch();
+      if (model.hasSourcePlaylist()) {
+        App.trigger("profile:show");
       } else {
-        $(".profile").removeClass("hidden");
+        App.trigger("settings:show");
       }
     },
     error : function () {

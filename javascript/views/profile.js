@@ -11,6 +11,9 @@ App.Views.Profile = Marionette.ItemView.extend({
       App.on("profile:hide", _.bind(function() {
         this.$el.addClass("hidden");
       }, this));
+      App.on("profile:updated", _.bind(function() {
+        this.render();
+      }, this));
     },
     showDetails : function (e) {
       e.preventDefault();
