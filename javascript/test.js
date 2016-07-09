@@ -1,9 +1,16 @@
-var profile = new App.Models.Profile();
+App.profile = new App.Models.Profile();
+App.playlists = new App.Collections.Playlist();
 var leftToLoad = 1;
 
 profileView = new App.Views.Profile({
-  model : profile,
+  model : App.profile,
   el : '.profile'
+});
+
+settingsView = new App.Views.Settings({
+  model : App.profile,
+  collection : App.playlists,
+  el : '.settings'
 });
 
 loginView = new App.Views.Login({
@@ -25,14 +32,20 @@ $.ajaxPrefilter( function( options, originalOptions, jqXHR ) {
   };
 });
 
-profile.fetch({
+App.profile.fetch({
     success : function (model) {
       leftToLoad--;
       if (leftToLoad == 0) {
         loaded();
       }
+      App.playlists.fetch();
       profileView.render();
-      $(".profile").removeClass("hidden");
+      settingsView.render();
+      if (model.get("source_playlist_owner_id") && model.get("source_playlist_id")) {
+        $(".profile").removeClass("hidden");
+      } else {
+        $(".profile").removeClass("hidden");
+      }
     },
     error : function () {
       leftToLoad--;

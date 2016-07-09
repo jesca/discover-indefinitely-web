@@ -74,6 +74,15 @@ a:active {
   color: white;
 }
 
+.settings_gear {
+  color: #2a5db0;
+  cursor: pointer;
+}
+
+.settings_gear:hover {
+  color: #ccc;
+ }
+
 .center {
   text-align: center !important;
 }
