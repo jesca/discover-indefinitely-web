@@ -10,6 +10,9 @@ App.Views.Settings = Marionette.LayoutView.extend({
     },
     templateHelpers : function () {
       return {
+        noPlaylists: function() {
+            return (new App.Collections.Playlist(App.playlists.filter({ isDiscoverWeekly: true }))).length == 0;
+        },
         sourcePlaylistSaved: function() {
             return App.profile.hasSourcePlaylist();
         }
