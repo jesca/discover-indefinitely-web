@@ -28,6 +28,7 @@ App.Views.Settings = Marionette.LayoutView.extend({
       App.on("playlists:updated", _.bind(function() {
         console.log("settings:playlists:updated")
         this.playlistView.collection = new App.Collections.Playlist(App.playlists.filter({ isDiscoverWeekly: true }));
+        this.render();
         this.playlistView.render();
      }, this));
     },
