@@ -60,6 +60,10 @@ a:active {
   position: relative;
 }
 
+.source_playlists {
+    padding-bottom: 50px;
+}
+
 .badge {
   position: absolute;
   bottom: 2px;
@@ -115,15 +119,18 @@ li {
 }
 
 .save {
-  font-size: 16px;
+  font-size: 32px;
   color: #2a5db0;
   cursor: pointer;
+  padding: 10px;
+  padding-bottom: 150px;
 }
 
 .cancel {
-  font-size: 16px;
+  font-size: 32px;
   color: red;
   cursor: pointer;
+  padding: 10px;
 }
 
 .center {

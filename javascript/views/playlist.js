@@ -15,6 +15,7 @@ App.Views.Playlist = Marionette.ItemView.extend({
      this.$el.addClass("selected");
      App.profile.set("pending_source_playlist_owner_id", this.model.get("owner_id"));
      App.profile.set("pending_source_playlist_id", this.model.get("id"));
+     window.scrollTo(0,document.body.scrollHeight);
    }
 });
 module.exports = App;
