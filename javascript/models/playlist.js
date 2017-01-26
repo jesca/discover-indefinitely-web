@@ -4,7 +4,7 @@ App.Models.Playlist = Backbone.Model.extend({
   },
 
   isDiscoverWeekly : function () {
-    return this.get("owner_id") == "spotifydiscover"
+    return this.get("owner_id") == "spotifydiscover" || this.get("owner_id") == "spotify"
   }
 });
 module.exports = App;
