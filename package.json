@@ -1,0 +1,9 @@
+{
+  "name": "discover-indefinitely-web",
+  "version": "0.1",
+  "description": "Discover Indefinitely Web",
+  "main": "index.js",
+  "repository": "git@git.smerty.org:smerty/discover-indefinitely-web.git",
+  "author": "Paul Picazo <ppicazo@gmail.com>",
+  "license": "MIT"
+}
