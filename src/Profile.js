@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Api from './Api';
+import Playlist from './Playlist'
 
 class Profile extends Component {
   constructor() {
@@ -14,7 +15,6 @@ class Profile extends Component {
   loadData() {
     var api = new Api();
     api.fetchProfile().then(json => {
-      console.log("Setting state", json);
       this.setState({
         profile: json.profile
       })
@@ -31,6 +31,7 @@ class Profile extends Component {
         <p className="App-intro">
           Spotify User Id: {this.state.profile.id}
         </p>
+        <Playlist />
       </div>
     );
   }
