@@ -26,8 +26,8 @@ class Playlists extends Component {
     var playlists = this.state.playlists
     return (
       <div className="Playlists">
-        {playlists.map(playlist =>
-            <div className="Playlist">
+        { playlists.map((playlist, index) =>
+            <div className="Playlist" key={index}>
               <a href={"https://open.spotify.com/user/" + playlist.owner_id + "/playlist/" + playlist.id}>{playlist.name}</a>
             </div>
         )}
