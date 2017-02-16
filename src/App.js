@@ -35,10 +35,9 @@ class App extends Component {
   updateData(playlist) {
     var api = new Api();
     api.updateProfile(playlist.id, playlist.owner_id).then(json => {
-      console.log("Got a response from the POST", json);
-      // this.setState({
-      //   profile: json.profile
-      // })
+      this.setState({
+        profile: json.profile
+      })
     });
   }
 
@@ -52,7 +51,7 @@ class App extends Component {
       content = (
         <div>
           <Profile profile={this.state.profile} />
-          <Playlists playlists={this.state.playlists} clicker={this.updateData} sync_id={this.state.profile.source_playlist_id} sync_owner_id={this.state.profile.source_playlist_owner_id} />
+          <Playlists playlists={this.state.playlists} clicker={this.updateData.bind(this)} sync_id={this.state.profile.source_playlist_id} sync_owner_id={this.state.profile.source_playlist_owner_id} />
         </div>
       );
     } else {
