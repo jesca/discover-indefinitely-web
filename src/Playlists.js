@@ -1,35 +1,12 @@
 import React, { Component } from 'react';
-import Api from './Api';
+import Playlist from './Playlist';
 
 class Playlists extends Component {
-  constructor() {
-    super()
-    this.state = {
-      playlists: []
-    }
-  }
-
-  loadData() {
-    var api = new Api();
-    api.fetchPlaylists().then(json => {
-      this.setState({
-        playlists: json
-      })
-    })
-  }
-
-  componentDidMount() {
-    this.loadData();
-  }
-
   render() {
-    var playlists = this.state.playlists
     return (
       <div className="Playlists">
-        { playlists.map((playlist, index) =>
-            <div className="Playlist" key={index}>
-              <a href={"https://open.spotify.com/user/" + playlist.owner_id + "/playlist/" + playlist.id}>{playlist.name}</a>
-            </div>
+        { this.props.playlists.map((playlist, index) =>
+          <Playlist playlist={playlist} clicker={this.props.clicker} key={index} sync={(this.props.sync_id == playlist.id && this.props.sync_owner_id == playlist.owner_id)} />
         )}
       </div>
     );
