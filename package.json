@@ -6,6 +6,16 @@
   "repository": "git@git.smerty.org:smerty/discover-indefinitely-web.git",
   "author": "Paul Picazo <ppicazo@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "automock": false,
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
+    }
+  },
   "dependencies": {
     "babel-core": "^6.22.1",
     "babel-loader": "^6.2.10",
@@ -24,6 +34,11 @@
     "url-loader": "^0.5.7",
     "webpack": "^2.2.1",
     "webpack-dev-middleware": "^1.10.0",
-    "webpack-hot-middleware": "^2.16.1"
+    "webpack-hot-middleware": "^2.16.1",
+    "whatwg-fetch": "^2.0.2"
+  },
+  "devDependencies": {
+    "fetch-mock": "^5.9.4",
+    "jest": "^18.1.0"
   }
 }

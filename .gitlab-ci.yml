@@ -12,3 +12,4 @@ build:
   script:
     - yarn install
     - yarn run webpack -p
+    - yarn test
