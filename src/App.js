@@ -5,6 +5,7 @@ import Api from './Api';
 import Login from './Login'
 import Profile from './Profile'
 import Playlists from './Playlists'
+import Footer from './Footer'
 
 class App extends Component {
   constructor() {
@@ -57,7 +58,7 @@ class App extends Component {
             <p>
               <a href="https://discoverindefinitely.com/logout">Logout</a>
             </p>
-            <p>Not officially affiliated with Spotify.</p>
+            <Footer />
           </div>
         </div>
       );
