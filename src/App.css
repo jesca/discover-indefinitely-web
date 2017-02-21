@@ -3,8 +3,32 @@
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
   height: 80px;
+  position: relative;
+}
+
+.App-logo-icon {
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 80px;
+  animation: App-logo-spin infinite 20s linear;
+}
+
+.App-logo-infinity {
+  font-size: 104px;
+  position: absolute;
+  margin: auto;
+  -webkit-text-stroke: 1px white;
+  top: -18px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  color: black;
+  opacity: 0.5;
 }
 
 .App-header {

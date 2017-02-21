@@ -60,7 +60,10 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          <div className="App-logo">
+            <img src={logo} className="App-logo-icon" alt="logo" />
+            <span className="App-logo-infinity">&infin;</span>
+          </div>
           <h2>Discover Indefinitely</h2>
         </div>
         {content}
