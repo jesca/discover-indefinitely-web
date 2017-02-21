@@ -17,8 +17,8 @@ class Playlist extends Component {
       sync_icon_right = <span> &lt;--</span>;
     }
     return (
-      <div className={"Playlist" + (isSync ? " synced" : "")} onClick={(e) => { this.handleClick(e) }} >
-        {sync_icon_left}<a href={"https://open.spotify.com/user/" + playlist.owner_id + "/playlist/" + playlist.id}>{playlist.name}</a>{sync_icon_right}
+      <div className={"Playlist" + (isSync ? " synced" : "")} >
+        {sync_icon_left}<a href={"https://open.spotify.com/user/" + playlist.owner_id + "/playlist/" + playlist.id} onClick={(e) => { this.handleClick(e) }}>{playlist.name}</a>{sync_icon_right}
       </div>
     );
   }
