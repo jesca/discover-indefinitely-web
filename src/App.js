@@ -15,7 +15,8 @@ class App extends Component {
       profile: {
         id: null
       },
-      playlists: []
+      playlists: [],
+      dwOnly: true
     }
   }
 
@@ -31,7 +32,7 @@ class App extends Component {
         })
       })
     })
-    setTimeout(this.loadData.bind(this), 60000);
+    //setTimeout(this.loadData.bind(this), 60000);
   }
 
   updateData(playlist) {
@@ -43,6 +44,11 @@ class App extends Component {
     });
   }
 
+  handleReload(e) {
+    e.preventDefault();
+    this.loadData();
+  }
+
   componentDidMount() {
     this.loadData();
   }
@@ -50,16 +56,41 @@ class App extends Component {
   render() {
     let content = null;
     if (this.state.profile.id != null) {
+      let dwPlaylists = this.state.dwOnly ? Utility.filterDiscoverWeekly(this.state.playlists) : this.state.playlists;
+      let playlistContent = null;
+      if (dwPlaylists.length > 0) {
+        let instructions = null;
+        if (this.state.profile.source_playlist_id == null || this.state.profile.source_playlist_id == "") {
+          instructions = (
+            <div className="Instructions red">
+              Before we can sync to Discover Indefinitely,
+              you will need to select it below.
+            </div>
+          )
+        }
+        playlistContent = (
+          <div>
+            {instructions}
+            <p>Playlist To Sync:</p>
+            <Playlists playlists={dwPlaylists} clicker={this.updateData.bind(this)} sync_id={this.state.profile.source_playlist_id} sync_owner_id={this.state.profile.source_playlist_owner_id} />
+          </div>
+        )
+      } else {
+        playlistContent = (
+          <div className="Instructions-more red">
+            <p>
+              Before we can sync to Discover Indefinitely,
+              you will need to follow your Discover Weekly playlist inside Spotify.
+              Then click <a href="/" onClick={this.handleReload.bind(this)} >here</a> to refresh this page.</p>
+          </div>
+        )
+      }
       content = (
         <div>
           <Profile profile={this.state.profile} />
-          <p>Select a playlist below to automatically import from:</p>
-          <Playlists playlists={Utility.filterDiscoverWeekly(this.state.playlists)} clicker={this.updateData.bind(this)} sync_id={this.state.profile.source_playlist_id} sync_owner_id={this.state.profile.source_playlist_owner_id} />
-          <div>
-            <p>
-              <a href="https://discoverindefinitely.com/logout">Logout</a>
-            </p>
-            <Footer />
+          {playlistContent}
+          <div className="Logout">
+            <a href="https://discoverindefinitely.com/logout">Logout</a>
           </div>
         </div>
       );
@@ -76,6 +107,7 @@ class App extends Component {
           <h2>Discover Indefinitely</h2>
         </div>
         {content}
+        <Footer />
       </div>
     );
   }

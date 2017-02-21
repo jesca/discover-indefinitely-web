@@ -11,15 +11,19 @@ class Playlist extends Component {
   render() {
     var playlist = this.props.playlist;
     var isSync = !!this.props.sync;
-    let sync_icon_left = null;
-    let sync_icon_right = null;
-    if (isSync) {
-      sync_icon_left = <span>--&gt; </span>;
-      sync_icon_right = <span> &lt;--</span>;
-    }
     return (
       <div className={"Playlist" + (isSync ? " synced" : "")} >
-        {sync_icon_left}<a href={Utility.playlistUri(playlist)} onClick={(e) => { this.handleClick(e) }}>{playlist.name}</a>{sync_icon_right}
+        <a href={Utility.playlistUri(playlist)} >
+        <div>
+          <img className="Playlist-image" src={playlist.image} />
+        </div>
+        <div>
+          <label>
+            <input className="Playlist-radio" type="radio" checked={isSync} onChange={(e) => { this.handleClick(e) }} />
+            {playlist.name}
+          </label>
+        </div>
+        </a>
       </div>
     );
   }

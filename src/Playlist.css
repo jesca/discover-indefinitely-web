@@ -2,6 +2,15 @@ a {
   color: #101010;
 }
 
+.Playlist-image {
+  height: 128px;
+  width: 128px;
+}
+
+.Playlist-radio {
+  vertical-align: bottom;
+}
+
 .synced {
   font-weight: bold;
 }
