@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Api from './Api';
+import Utility from './Utility';
 import Login from './Login'
 import Profile from './Profile'
 import Playlists from './Playlists'
@@ -53,7 +54,7 @@ class App extends Component {
         <div>
           <Profile profile={this.state.profile} />
           <p>Select a playlist below to automatically import from:</p>
-          <Playlists playlists={this.state.playlists} clicker={this.updateData.bind(this)} sync_id={this.state.profile.source_playlist_id} sync_owner_id={this.state.profile.source_playlist_owner_id} />
+          <Playlists playlists={Utility.filterDiscoverWeekly(this.state.playlists)} clicker={this.updateData.bind(this)} sync_id={this.state.profile.source_playlist_id} sync_owner_id={this.state.profile.source_playlist_owner_id} />
           <div>
             <p>
               <a href="https://discoverindefinitely.com/logout">Logout</a>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Playlist.css';
+import Utility from './Utility';
 
 class Playlist extends Component {
   handleClick(e) {
@@ -18,7 +19,7 @@ class Playlist extends Component {
     }
     return (
       <div className={"Playlist" + (isSync ? " synced" : "")} >
-        {sync_icon_left}<a href={"https://open.spotify.com/user/" + playlist.owner_id + "/playlist/" + playlist.id} onClick={(e) => { this.handleClick(e) }}>{playlist.name}</a>{sync_icon_right}
+        {sync_icon_left}<a href={Utility.playlistUri(playlist)} onClick={(e) => { this.handleClick(e) }}>{playlist.name}</a>{sync_icon_right}
       </div>
     );
   }
