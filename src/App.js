@@ -51,7 +51,14 @@ class App extends Component {
       content = (
         <div>
           <Profile profile={this.state.profile} />
+          <p>Select a playlist below to automatically import from:</p>
           <Playlists playlists={this.state.playlists} clicker={this.updateData.bind(this)} sync_id={this.state.profile.source_playlist_id} sync_owner_id={this.state.profile.source_playlist_owner_id} />
+          <div>
+            <p>
+              <a href="https://discoverindefinitely.com/logout">Logout</a>
+            </p>
+            <p>Not officially affiliated with Spotify.</p>
+          </div>
         </div>
       );
     } else {

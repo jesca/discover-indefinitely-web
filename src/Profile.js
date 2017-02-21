@@ -6,7 +6,10 @@ class Profile extends Component {
     return (
         <div className="Profile">
           <p className="App-intro">
-            Hello {this.props.profile.id}, <a href="https://discoverindefinitely.com/logout">Logout</a>
+            Hello {this.props.profile.id}
+          </p>
+          <p>
+            Here is your <a href={"https://open.spotify.com/user/discoverindefinitely/playlist/" + this.props.profile.target_playlist_id} >Discover Indefinitely</a> playlist, follow it in Spotify so you can find it easily.
           </p>
         </div>
     );
