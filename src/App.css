@@ -18,17 +18,26 @@
   animation: App-logo-spin infinite 20s linear;
 }
 
+.App-logo-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  font-size: 50px;
+  line-height: 80px;
+  text-align: center;
+  background: #1ED760
+}
+
 .App-logo-infinity {
   font-size: 104px;
   position: absolute;
   margin: auto;
-  -webkit-text-stroke: 1px white;
   top: -18px;
   left: 0;
   bottom: 0;
   right: 0;
   color: black;
-  opacity: 0.5;
+  opacity: 1;
 }
 
 .App-header {

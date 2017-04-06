@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Api from './Api';
 import Utility from './Utility';
@@ -101,8 +100,7 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <div className="App-logo">
-            <img src={logo} className="App-logo-icon" alt="logo" />
-            <span className="App-logo-infinity">&infin;</span>
+            <span className="App-logo-infinity App-logo-circle">&infin;</span>
           </div>
           <h2>Discover Indefinitely</h2>
         </div>
