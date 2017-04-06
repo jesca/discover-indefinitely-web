@@ -1,18 +1,16 @@
-DI-web
-===
+# Discover Indefinitely Web
 
-## Dev
-```
-$ npm install
-$ npm run dev
-```
+Development supports hot reloading of the code.
 
-http://localhost:9090/
-
-## Production
+You should have `yarn`
 ```
-$ webpack -p
+brew update
+brew install yarn
 ```
 
-## 1.0 Roadmap
-* TBD
+Start it up
+```
+$ yarn start
+```
+
+Hit up: http://localhost:9090

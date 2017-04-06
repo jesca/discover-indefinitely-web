@@ -1,39 +1,38 @@
-var webpack = require("webpack");
+const webpack = require('webpack')
+const path = require('path')
 module.exports = {
-  devtool: "source-map",
-  entry : "./entry.js",
-  output : {
-    path : __dirname,
-    filename : "./bundle.js",
-    sourceMapFilename: "./bundle.js.map",
-    devtoolLineToLine: true
+  output: {
+    publicPath: '/dist',
+    path: path.join(__dirname, '/dist'),
+    filename: 'bundle.js'
   },
-  module : {
-    loaders : [
-      { test : /\.scss$/, loader : "style!css!sass" },
-      { test : /\.ejs$/, loader: "ejs-loader" },
-      { test : /\.(eot|woff)$/, loader : "file-loader" }
+  devtool: 'cheap-module-eval-source-map',
+  entry: [
+    'webpack-hot-middleware/client',
+    path.join(__dirname, '/src/index.js')
+  ],
+  module: {
+    loaders: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loaders: ['react-hot-loader', 'babel-loader']
+      },
+      {
+        test: /\.svg(\?.*)?$/,
+        loaders: ['url-loader', 'svgo-loader']
+      },
+      {
+        test: /\.css$/,
+        use: [ 'style-loader', 'css-loader' ]
+      }
     ]
   },
-  plugins : [
-    new webpack.optimize.DedupePlugin(),
-    new webpack.ProvidePlugin({
-      $ : "jquery",
-      jQuery : 'jquery',
-      'window.jQuery' : 'jquery',
-      'window.$' : 'jquery'
-    }),
-    new webpack.ProvidePlugin({
-      'Backbone' : 'backbone'
-    }),
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.optimize.UglifyJsPlugin(),
     new webpack.ProvidePlugin({
       '_' : 'underscore'
-    }),
-    new webpack.ProvidePlugin({
-      Marionette : "backbone.marionette"
-    }),
-    new webpack.ProvidePlugin({
-      'moment' : "moment"
     })
   ]
-};
+}
