@@ -17,7 +17,7 @@ class Api {
   }
 
   genericGet(path) {
-    return fetch("https://discoverindefinitely.com" + path, this.options())
+    return fetch("https://api.discoverindefinitely.com" + path, this.options())
       .then((response) => { return response.json() });
   }
 
@@ -27,7 +27,7 @@ class Api {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     });
-    return fetch("https://discoverindefinitely.com" + path, options)
+    return fetch("https://api.discoverindefinitely.com" + path, options)
       .then((response) => { return response.json() });
   }
 
